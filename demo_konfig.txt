@@ -1,0 +1,2 @@
+breath.mp3;./sounds/breath.wav;Vegyél levegőt;Unity
+can.mp3;./sounds/can.wav;Befőttes;Unity
