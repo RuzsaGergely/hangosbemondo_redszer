@@ -46,9 +46,12 @@ namespace Hangosbemondo
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ofd_konfig = new System.Windows.Forms.OpenFileDialog();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lbl_statusz = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lb_sorrend
@@ -57,14 +60,14 @@ namespace Hangosbemondo
             this.lb_sorrend.ItemHeight = 16;
             this.lb_sorrend.Location = new System.Drawing.Point(12, 21);
             this.lb_sorrend.Name = "lb_sorrend";
-            this.lb_sorrend.Size = new System.Drawing.Size(366, 260);
+            this.lb_sorrend.Size = new System.Drawing.Size(392, 260);
             this.lb_sorrend.TabIndex = 0;
             // 
             // btn_sorrend_fel
             // 
             this.btn_sorrend_fel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_sorrend_fel.BackgroundImage")));
             this.btn_sorrend_fel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_sorrend_fel.Location = new System.Drawing.Point(398, 59);
+            this.btn_sorrend_fel.Location = new System.Drawing.Point(423, 59);
             this.btn_sorrend_fel.Name = "btn_sorrend_fel";
             this.btn_sorrend_fel.Size = new System.Drawing.Size(50, 50);
             this.btn_sorrend_fel.TabIndex = 1;
@@ -75,10 +78,10 @@ namespace Hangosbemondo
             // 
             this.btn_sorrend_le.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_sorrend_le.BackgroundImage")));
             this.btn_sorrend_le.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_sorrend_le.Location = new System.Drawing.Point(398, 198);
+            this.btn_sorrend_le.Location = new System.Drawing.Point(423, 198);
             this.btn_sorrend_le.Name = "btn_sorrend_le";
             this.btn_sorrend_le.Size = new System.Drawing.Size(50, 50);
-            this.btn_sorrend_le.TabIndex = 2;
+            this.btn_sorrend_le.TabIndex = 3;
             this.btn_sorrend_le.UseVisualStyleBackColor = true;
             this.btn_sorrend_le.Click += new System.EventHandler(this.btn_sorrend_le_Click);
             // 
@@ -86,24 +89,24 @@ namespace Hangosbemondo
             // 
             this.btn_sorrend_torol.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_sorrend_torol.BackgroundImage")));
             this.btn_sorrend_torol.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_sorrend_torol.Location = new System.Drawing.Point(398, 129);
+            this.btn_sorrend_torol.Location = new System.Drawing.Point(423, 128);
             this.btn_sorrend_torol.Name = "btn_sorrend_torol";
             this.btn_sorrend_torol.Size = new System.Drawing.Size(50, 50);
-            this.btn_sorrend_torol.TabIndex = 3;
+            this.btn_sorrend_torol.TabIndex = 2;
             this.btn_sorrend_torol.UseVisualStyleBackColor = true;
             this.btn_sorrend_torol.Click += new System.EventHandler(this.btn_sorrend_torol_Click);
             // 
             // cb_hozzaadasi_lista
             // 
             this.cb_hozzaadasi_lista.FormattingEnabled = true;
-            this.cb_hozzaadasi_lista.Location = new System.Drawing.Point(12, 31);
+            this.cb_hozzaadasi_lista.Location = new System.Drawing.Point(21, 31);
             this.cb_hozzaadasi_lista.Name = "cb_hozzaadasi_lista";
             this.cb_hozzaadasi_lista.Size = new System.Drawing.Size(334, 24);
             this.cb_hozzaadasi_lista.TabIndex = 4;
             // 
             // btn_hozzaad
             // 
-            this.btn_hozzaad.Location = new System.Drawing.Point(361, 28);
+            this.btn_hozzaad.Location = new System.Drawing.Point(377, 28);
             this.btn_hozzaad.Name = "btn_hozzaad";
             this.btn_hozzaad.Size = new System.Drawing.Size(96, 29);
             this.btn_hozzaad.TabIndex = 5;
@@ -113,9 +116,9 @@ namespace Hangosbemondo
             // 
             // btn_lejatszas
             // 
-            this.btn_lejatszas.Location = new System.Drawing.Point(164, 448);
+            this.btn_lejatszas.Location = new System.Drawing.Point(360, 32);
             this.btn_lejatszas.Name = "btn_lejatszas";
-            this.btn_lejatszas.Size = new System.Drawing.Size(151, 54);
+            this.btn_lejatszas.Size = new System.Drawing.Size(113, 51);
             this.btn_lejatszas.TabIndex = 6;
             this.btn_lejatszas.Text = "Lejátszás (F1)";
             this.btn_lejatszas.UseVisualStyleBackColor = true;
@@ -128,7 +131,7 @@ namespace Hangosbemondo
             this.rendszerToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(497, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(518, 28);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -146,28 +149,28 @@ namespace Hangosbemondo
             // összeállításMentéseToolStripMenuItem
             // 
             this.összeállításMentéseToolStripMenuItem.Name = "összeállításMentéseToolStripMenuItem";
-            this.összeállításMentéseToolStripMenuItem.Size = new System.Drawing.Size(274, 26);
-            this.összeállításMentéseToolStripMenuItem.Text = "Összeállítás mentése";
+            this.összeállításMentéseToolStripMenuItem.Size = new System.Drawing.Size(303, 26);
+            this.összeállításMentéseToolStripMenuItem.Text = "Összeállítás mentése (F4)";
             this.összeállításMentéseToolStripMenuItem.Click += new System.EventHandler(this.összeállításMentéseToolStripMenuItem_Click);
             // 
             // összeállításBetöltéseToolStripMenuItem
             // 
             this.összeállításBetöltéseToolStripMenuItem.Name = "összeállításBetöltéseToolStripMenuItem";
-            this.összeállításBetöltéseToolStripMenuItem.Size = new System.Drawing.Size(274, 26);
-            this.összeállításBetöltéseToolStripMenuItem.Text = "Összeállítás betöltése";
+            this.összeállításBetöltéseToolStripMenuItem.Size = new System.Drawing.Size(303, 26);
+            this.összeállításBetöltéseToolStripMenuItem.Text = "Összeállítás betöltése (F3)";
             this.összeállításBetöltéseToolStripMenuItem.Click += new System.EventHandler(this.összeállításBetöltéseToolStripMenuItem_Click);
             // 
             // konfigurációsFájlBetöltéseToolStripMenuItem
             // 
             this.konfigurációsFájlBetöltéseToolStripMenuItem.Name = "konfigurációsFájlBetöltéseToolStripMenuItem";
-            this.konfigurációsFájlBetöltéseToolStripMenuItem.Size = new System.Drawing.Size(274, 26);
-            this.konfigurációsFájlBetöltéseToolStripMenuItem.Text = "Konfigurációs fájl betöltése";
+            this.konfigurációsFájlBetöltéseToolStripMenuItem.Size = new System.Drawing.Size(303, 26);
+            this.konfigurációsFájlBetöltéseToolStripMenuItem.Text = "Konfigurációs fájl betöltése (F2)";
             this.konfigurációsFájlBetöltéseToolStripMenuItem.Click += new System.EventHandler(this.konfigurációsFájlBetöltéseToolStripMenuItem_Click);
             // 
             // kilépésToolStripMenuItem
             // 
             this.kilépésToolStripMenuItem.Name = "kilépésToolStripMenuItem";
-            this.kilépésToolStripMenuItem.Size = new System.Drawing.Size(274, 26);
+            this.kilépésToolStripMenuItem.Size = new System.Drawing.Size(303, 26);
             this.kilépésToolStripMenuItem.Text = "Kilépés";
             this.kilépésToolStripMenuItem.Click += new System.EventHandler(this.kilépésToolStripMenuItem_Click);
             // 
@@ -179,7 +182,7 @@ namespace Hangosbemondo
             this.groupBox1.Controls.Add(this.btn_sorrend_fel);
             this.groupBox1.Location = new System.Drawing.Point(12, 38);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(473, 299);
+            this.groupBox1.Size = new System.Drawing.Size(494, 299);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sorrend szerkesztő";
@@ -188,23 +191,46 @@ namespace Hangosbemondo
             // 
             this.groupBox2.Controls.Add(this.cb_hozzaadasi_lista);
             this.groupBox2.Controls.Add(this.btn_hozzaad);
-            this.groupBox2.Location = new System.Drawing.Point(12, 355);
+            this.groupBox2.Location = new System.Drawing.Point(12, 343);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(473, 76);
+            this.groupBox2.Size = new System.Drawing.Size(494, 76);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Hozzáadás";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.lbl_statusz);
+            this.groupBox3.Controls.Add(this.btn_lejatszas);
+            this.groupBox3.Location = new System.Drawing.Point(12, 425);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(494, 100);
+            this.groupBox3.TabIndex = 10;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Státusz";
+            // 
+            // lbl_statusz
+            // 
+            this.lbl_statusz.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lbl_statusz.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbl_statusz.Location = new System.Drawing.Point(18, 32);
+            this.lbl_statusz.Name = "lbl_statusz";
+            this.lbl_statusz.Size = new System.Drawing.Size(310, 51);
+            this.lbl_statusz.TabIndex = 7;
+            this.lbl_statusz.Text = "Státusz";
+            this.lbl_statusz.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(497, 514);
+            this.ClientSize = new System.Drawing.Size(518, 539);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btn_lejatszas);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -214,6 +240,7 @@ namespace Hangosbemondo
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,6 +264,8 @@ namespace Hangosbemondo
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.OpenFileDialog ofd_konfig;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label lbl_statusz;
     }
 }
 

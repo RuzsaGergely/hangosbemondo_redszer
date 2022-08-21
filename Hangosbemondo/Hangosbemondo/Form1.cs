@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Media;
+using System.Threading;
 
 namespace Hangosbemondo
 {
@@ -23,12 +24,13 @@ namespace Hangosbemondo
 
         private void btn_sorrend_fel_Click(object sender, EventArgs e)
         {
-            if(lb_sorrend.SelectedIndex != 0)
+            if(lb_sorrend.SelectedIndex > 0)
             {
                 var felette = lb_sorrend.Items[lb_sorrend.SelectedIndex - 1];
                 var mostani = lb_sorrend.Items[lb_sorrend.SelectedIndex];
                 lb_sorrend.Items[lb_sorrend.SelectedIndex] = felette;
                 lb_sorrend.Items[lb_sorrend.SelectedIndex - 1] = mostani;
+                lb_sorrend.SelectedIndex = lb_sorrend.SelectedIndex - 1;
             }
         }
 
@@ -40,17 +42,32 @@ namespace Hangosbemondo
                 var mostani = lb_sorrend.Items[lb_sorrend.SelectedIndex];
                 lb_sorrend.Items[lb_sorrend.SelectedIndex] = alatta;
                 lb_sorrend.Items[lb_sorrend.SelectedIndex + 1] = mostani;
+                lb_sorrend.SelectedIndex = lb_sorrend.SelectedIndex + 1;
             }
         }
 
         private void btn_sorrend_torol_Click(object sender, EventArgs e)
         {
-            lb_sorrend.Items.Remove(lb_sorrend.SelectedItem);
+            try
+            {
+                lb_sorrend.Items.Remove(lb_sorrend.SelectedItem);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hiba történt!\nHibaüzenet: {ex.Message}", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btn_hozzaad_Click(object sender, EventArgs e)
         {
-            lb_sorrend.Items.Add(cb_hozzaadasi_lista.SelectedItem);
+            try
+            {
+                lb_sorrend.Items.Add(cb_hozzaadasi_lista.SelectedItem);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hiba történt!\nHibaüzenet: {ex.Message}", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Indulas(string Fajl)
@@ -75,11 +92,16 @@ namespace Hangosbemondo
 
         private void btn_lejatszas_Click(object sender, EventArgs e)
         {
-            SoundPlayer aktualis_hang;
             foreach (Hang item in lb_sorrend.Items)
             {
-                aktualis_hang = new SoundPlayer(item.Eleresiut);
-                aktualis_hang.PlaySync();
+                lbl_statusz.Text = $"Lejátszás:\n{item.Megjelenitesi_nev} - {item.Szinkronhang_neve}";
+                ThreadPool.QueueUserWorkItem(ignoredState =>
+                {
+                    using (var aktualis_hang = new SoundPlayer(item.Eleresiut))
+                    {
+                        aktualis_hang.PlaySync();
+                    }
+                });
             }
         }
 
@@ -115,6 +137,21 @@ namespace Hangosbemondo
             if(e.KeyCode == Keys.F1)
             {
                 btn_lejatszas_Click(null, null);
+            }
+
+            if(e.KeyCode == Keys.F2)
+            {
+                konfigurációsFájlBetöltéseToolStripMenuItem_Click(null, null);
+            }
+
+            if(e.KeyCode == Keys.F3)
+            {
+                összeállításBetöltéseToolStripMenuItem_Click(null, null);
+            }
+
+            if(e.KeyCode == Keys.F4)
+            {
+                összeállításMentéseToolStripMenuItem_Click(null, null);
             }
         }
     }
